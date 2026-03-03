@@ -1,0 +1,141 @@
+*{
+    font-family: Raleway;
+}
+
+.container {
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.input {
+    border: none;
+    border-bottom: 1px solid rgba(68, 68, 68, 20%);
+    color: rgba(68, 68, 68, 50%);
+    outline: none;
+    padding: 25px 0 0 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    width: 360px;
+}
+
+.button-wrapper {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    max-width: 240px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.button {
+    color: rgba(255, 255, 255, 1);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+    border: none;
+    background: rgba(0, 0, 0, 1);
+    padding: 17px 74px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.vertical-line {
+    width: 2px;
+    height: 100%;
+    background: rgba(0, 0, 0, 1);
+}
+
+.price{
+    display: flex;
+    gap: 15px;
+}
+.current-price{
+    font-family: Josefin Sans;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.old-price{
+    font-family: Josefin Sans;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 16px;
+    text-decoration: line-through;
+    color: rgba(68, 68, 68, 1);
+}
+
+.custom-list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.item{
+    color: rgba(68, 68, 68, 1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    font-family: Raleway;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+}
+
+.item:hover{
+    color: rgba(255, 142, 142, 1);
+}
+
+.item::before{
+    content: "";
+    background-image: url("../icons/square.svg");
+    display: block;
+    width: 5px;
+    height: 5px;
+}
+
+.item.active{
+    color: rgba(255, 142, 142, 1);
+    list-style: none;
+}
+
+.item.active::before{
+    content: "";
+    background-image: url("../icons/line.svg");
+    display: block;
+    width: 25px;
+    height: 3px;
+}
+
+.find-us-text {
+    margin: 0 0 20px 0;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 170%;
+}
+
+.find-us-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.find-us-link a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: rgba(68, 68, 68, 1);
+}
+
+.line {
+    height: 1px;
+    border-bottom: 1px solid #444444;
+    width: 10px
+}
+
