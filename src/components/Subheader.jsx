@@ -1,4 +1,3 @@
-import React from 'react';
 import longLineSvg from '../icons/long-line.svg';
 import dots1Svg from '../icons/dots1.svg';
 import blackSquareSvg from '../icons/black-square.svg';

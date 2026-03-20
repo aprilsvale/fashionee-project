@@ -1,4 +1,3 @@
-import React from 'react';
 import { useFavorites } from '../context/FavoritesContext';
 import { useCart } from '../context/CartContext';
 import logoSvg from '../icons/logo.svg';
@@ -21,7 +20,7 @@ const Header = ({ currentPage, onPageChange }) => {
                         <input type="checkbox" id="burger-checkbox" className="burger-checkbox" />
                         <label className="burger" htmlFor="burger-checkbox"></label>
                     </div>
-                    <div className="logo" onClick={() => onPageChange('shop')} style={{cursor: 'pointer'}}>
+                    <div className="logo" onClick={() => onPageChange('shop')}>
                         <img src={logoSvg} alt="logo" />
                     </div>
                 </div>

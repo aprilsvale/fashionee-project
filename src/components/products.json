@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Fashionee - cotton shirt (S)",
+    "price": 35.99,
+    "oldPrice": 52.99,
+    "image": ""
+  },
+  {
+    "id": 2,
+    "title": "Fashionee - cotton shirt (M)",
+    "price": 35.99,
+    "oldPrice": 52.99,
+    "image": ""
+  },
+  {
+    "id": 3,
+    "title": "Fashionee - cotton shirt (L)",
+    "price": 35.99,
+    "oldPrice": 52.99,
+    "image": ""
+  },
+  {
+    "id": 4,
+    "title": "Fashionee - cotton shirt (XL)",
+    "price": 35.99,
+    "oldPrice": 52.99,
+    "image": ""
+  },
+  {
+    "id": 5,
+    "title": "Fashionee - cotton shirt (S)",
+    "price": 35.99,
+    "oldPrice": 52.99,
+    "image": ""
+  },
+  {
+    "id": 6,
+    "title": "Fashionee - cotton shirt (M)",
+    "price": 35.99,
+    "oldPrice": 52.99,
+    "image": ""
+  },
+  {
+    "id": 7,
+    "title": "Fashionee - cotton shirt (L)",
+    "price": 35.99,
+    "oldPrice": 52.99,
+    "image": ""
+  },
+  {
+    "id": 8,
+    "title": "Fashionee - cotton shirt (XL)",
+    "price": 35.99,
+    "oldPrice": 52.99,
+    "image": ""
+  }
+]

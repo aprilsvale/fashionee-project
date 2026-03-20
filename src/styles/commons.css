@@ -1,5 +1,5 @@
 *{
-    font-family: Raleway;
+    font-family: "Raleway", sans-serif;
 }
 
 .container {
@@ -52,14 +52,14 @@
     gap: 15px;
 }
 .current-price{
-    font-family: Josefin Sans;
+    font-family: "Josefin Sans", sans-serif;
     font-weight: 400;
     font-size: 20px;
     line-height: 20px;
 }
 
 .old-price{
-    font-family: Josefin Sans;
+    font-family: "Josefin Sans", sans-serif;
     font-weight: 300;
     font-size: 16px;
     line-height: 16px;
@@ -80,7 +80,7 @@
     align-items: center;
     gap: 15px;
     cursor: pointer;
-    font-family: Raleway;
+    font-family: "Raleway", sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 27px;

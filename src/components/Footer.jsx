@@ -1,4 +1,3 @@
-import React from 'react';
 import logoSvg from '../icons/logo.svg';
 import sendSvg from '../icons/send.svg';
 import dots2Svg from '../icons/dots2.svg';

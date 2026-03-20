@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useFavorites } from '../context/FavoritesContext';
 import { useCart } from '../context/CartContext';
 import heartSvg from '../icons/heart.svg';
@@ -8,7 +7,6 @@ const ProductCard = ({ product }) => {
     const { addToCart, getItemQuantity, incrementQuantity, decrementQuantity } = useCart();
     const favorite = isFavorite(product.id);
     const quantity = getItemQuantity(product.id);
-    const [showQuantitySelector, setShowQuantitySelector] = useState(false);
 
     const handleFavoriteClick = (e) => {
         e.stopPropagation();
@@ -17,7 +15,6 @@ const ProductCard = ({ product }) => {
 
     const handleAddToCart = () => {
         addToCart(product);
-        setShowQuantitySelector(true);
     };
 
     const handleIncrement = (e) => {
@@ -29,7 +26,6 @@ const ProductCard = ({ product }) => {
         e.stopPropagation();
         decrementQuantity(product.id);
         if (quantity === 1) {
-            setShowQuantitySelector(false);
         }
     };
 
@@ -63,7 +59,7 @@ const ProductCard = ({ product }) => {
                     <span className="current-price">${product.price}</span>
                 </div>
 
-                {showQuantitySelector || quantity > 0 ? (
+                {quantity > 0 ? (
                     <div className="cart-quantity-selector">
                         <button className="quantity-btn" onClick={handleDecrement}>-</button>
                         <span className="quantity">{quantity}</span>

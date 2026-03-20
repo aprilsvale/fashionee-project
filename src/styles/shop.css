@@ -4,13 +4,13 @@
     margin: 50px auto 199px;
 }
 
-.subheader .shop-block {
+.shop-block {
     display: flex;
     gap: 150px;
     justify-content: space-between;
 }
 
-.subheader .shop-block .shop-group {
+.shop-group {
     max-width: 850px;
     width: 100%;
     display: flex;
@@ -20,14 +20,14 @@
     position: relative;
 }
 
-.subheader .shop-block .shop-group .shop-name {
-    font-family: Josefin Sans;
+.shop-name {
+    font-family: "Josefin Sans", sans-serif;
     font-weight: 400;
     font-size: 80px;
     line-height: 100%;
 }
 
-.subheader .shop-block .shop-group .long-line {
+.long-line {
     border: none;
     height: 2px;
     background-color: #000;
@@ -35,7 +35,7 @@
     position: absolute;
 }
 
-.subheader .shop-block .shop-group .home-and-shop {
+.home-and-shop {
     display: flex;
     flex-direction: row;
     gap: 12px;
@@ -47,7 +47,7 @@
     align-items: flex-start;
 }
 
-.subheader .shop-block .shop-photo {
+.shop-photo {
     margin-right: 60px;
     width: 800px;
     height: 400px;
@@ -59,24 +59,24 @@
     top: 36px;
 }
 
-.subheader .shop-block .shop-group .home-and-shop .vertical-line {
+.vertical-line {
     width: 1.5px;
     background: rgba(0, 0, 0, 1);
 }
 
-.subheader .shop-block .shop-group .home-and-shop .home-part .active,
-.subheader .shop-block .shop-group .home-and-shop .home-part:hover {
+.home-part .active,
+.home-part:hover {
     color: #FF8E8E;
     cursor: pointer;
 }
 
-.subheader .shop-block .shop-group .home-and-shop .shop-part .active,
-.subheader .shop-block .shop-group .home-and-shop .shop-part:hover {
+ .shop-part .active,
+ .shop-part:hover {
     color: #FF8E8E;
     cursor: pointer;
 }
 
-.down-block .white-box  .newsletter-form .button-wrapper .vertical-line {
+.button-wrapper .vertical-line {
     width: 2px;
     height: 100%;
     background: rgba(0, 0, 0, 1);
@@ -89,7 +89,7 @@
     justify-content: center;
 }
 
-.shop .sidebar{
+.sidebar{
     max-width: 244px;
     width: 100%;
     display: flex;
@@ -97,28 +97,29 @@
     gap: 50px;
 }
 
-.shop .sidebar .search{
+.search{
     position: relative;
 }
 
-.shop .sidebar .search .search-row {
-    padding: 0 25px 15px 0;
+.search-row {
+    padding: 0 20px 15px 0;
+    width: 200px;
 }
 
-.shop .sidebar .search .search-icon{
+.search-icon{
     position: absolute;
     right: 0;
     top: 0;
 }
 
-.shop .sidebar .sidebar-item {
+.sidebar-item {
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
-.shop .sidebar .sidebar-item .sidebar-title {
-    font-family: Josefin Sans;
+.sidebar-title {
+    font-family: "Josefin Sans", sans-serif;
     font-weight: 400;
     font-size: 24px;
     line-height: 29px;
@@ -127,18 +128,18 @@
     padding-bottom: 15px;
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .price-bar{
+.price-bar{
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 15px;
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .custom-list{
+.custom-list{
     margin: 0 0 0 20px;
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .colors{
+.colors{
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -146,19 +147,19 @@
 }
 
 
-.shop .sidebar .sidebar-item .sidebar-content .colors .color .color-checkbox {
+.color-checkbox {
     position: absolute;
     z-index: -1;
     opacity: 0;
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .colors .color .color-checkbox+.color-name{
+.color-checkbox+.color-name{
     display: inline-flex;
     align-items: center;
     user-select: none;
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .colors .color .color-checkbox+.color-name::before{
+.color-checkbox+.color-name::before{
     content: '';
     display: inline-block;
     width: 15px;
@@ -172,64 +173,64 @@
     box-sizing: border-box;
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .colors .color .color-checkbox:checked+.color-name{
+.color-checkbox:checked+.color-name{
     color: rgba(255, 142, 142, 1);
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .colors .color .color-checkbox:checked+.color-name::before{
+.color-checkbox:checked+.color-name::before{
     background-image: url("../icons/check-mark.svg");
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .reviewed-products{
+.reviewed-products{
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .reviewed-products .product{
+.reviewed-products .product{
     display: flex;
     gap: 15px;
     align-items: center;
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .reviewed-products .product .image{
+.product .image{
     width: 75px;
     height: 85px;
     background: rgba(241, 242, 243, 1);
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .reviewed-products .product .info{
+.reviewed-products .product .info{
     max-width: 150px;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-.shop .sidebar .sidebar-item .sidebar-content .reviewed-products .product .info .name{
+ .product .info .name{
     font-weight: 400;
     font-size: 14px;
     line-height: 2px;
     color: rgba(68, 68, 68, 1);
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .reviewed-products .product .info .price{
+.product .info .price{
     gap: 10px;
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .reviewed-products .product .info .price .current-price{
+.reviewed-products .product .info .price .current-price{
     font-size: 14px;
     line-height: 14px;
 }
 
-.shop .sidebar .sidebar-item .sidebar-content .reviewed-products .product .info .price .old-price {
+.reviewed-products .product .info .price .old-price {
     font-size: 12px;
     line-height: 12px;
     text-decoration: line-through;
 }
 
-.shop .products-wrapper {
+.products-wrapper {
     max-width: 846px;
     width: 100%;
     display: flex;
@@ -237,7 +238,7 @@
     gap: 40px;
 }
 
-.shop .products-wrapper .sort-and-count {
+ .sort-and-count {
     display: flex;
     justify-content: space-between;
     gap: 30px;
@@ -246,28 +247,28 @@
     line-height: 170%;
 }
 
-.shop .products-wrapper .sort-and-count .bold {
+.sort-and-count .bold {
     font-weight: 600;
     font-size: 16px;
     line-height: 170%;
 }
 
-.shop .products-wrapper .sort-and-count .sort {
+.sort-and-count .sort {
     max-width: 262px;
     width: 100%;
 }
 
-.shop .products-wrapper .sort-and-count .sort .input{
+ .sort .input{
     color: rgba(0, 0, 0, 1);
 }
 
-.shop .products-wrapper .products {
+.products-wrapper .products {
     display: flex;
     flex-wrap: wrap;
     gap: 50px 30px;
 }
 
-.shop .products-wrapper .products .product{
+.products .product{
     max-width: 262px;
     width: 100%;
     display: flex;
@@ -275,13 +276,13 @@
     gap: 20px;
 }
 
-.shop .products-wrapper .products .product .photo{
+.product .photo{
     height: 360px;
     background: #F1F2F3;
     position: relative;
 }
 
-.shop .products-wrapper .products .product .photo .top-bar{
+.top-bar{
     position: absolute;
     top: 15px;
     left: 20px;
@@ -306,23 +307,23 @@
     background: rgba(255, 142, 142, 1);
 }
 
-.shop .products-wrapper .products .product .photo .top-bar .labels .label.new{
+.label.new{
     background: rgba(149, 204, 181, 1);
 }
 
-.shop .products-wrapper .products .product .info{
+.products .product .info{
     display: flex;
     flex-direction: column;
     gap: 9px;
 }
 
-.shop .products-wrapper .products .product .info .name{
+.product .info .name{
     font-weight: 400;
     font-size: 16px;
     line-height: 27px;
 }
 
-.shop .products-wrapper .products .product .info .price{
+.product .info .price{
     display: flex;
     gap: 15px;
     font-weight: 400;
@@ -331,12 +332,12 @@
     align-items: center;
 }
 
-.shop .products-wrapper .products .product .info .price .current-price{
-    font-family: Josefin Sans;
+.current-price{
+    font-family: "Josefin Sans", sans-serif;
 }
 
-.shop .products-wrapper .products .product .info .price .old-price{
-    font-family: Josefin Sans;
+ .old-price{
+    font-family: "Josefin Sans", sans-serif;
     font-weight: 300;
     font-size: 16px;
     line-height: 16px;
@@ -344,7 +345,7 @@
     color: rgba(68, 68, 68, 1);
 }
 
-.shop .products-wrapper .pagination {
+.pagination {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -352,12 +353,12 @@
     align-items: center;
 }
 
-.shop .products-wrapper .pagination .pages{
+.pages{
     display: flex;
     gap: 20px;
 }
 
-.shop .products-wrapper .pagination .pages .page{
+.page{
     font-weight: 400;
     font-size: 16px;
     line-height: 16px;
@@ -368,7 +369,7 @@
     text-align: center;
 }
 
-.shop .products-wrapper .pagination .pages .page .active {
+.page .active {
     font-weight: 600;
     font-size: 16px;
     line-height: 16px;
@@ -396,7 +397,7 @@
 }
 
 .title-newsletter {
-    font-family: Josefin Sans;
+    font-family: "Josefin Sans", sans-serif;
     font-weight: 400;
     font-size: 32px;
     line-height: 120%;
@@ -420,11 +421,11 @@
     gap: 30px;
 }
 
-.newsletter-block .white-box  .newsletter-form .button-wrapper {
+.newsletter-form .button-wrapper {
     position: relative;
 }
 
-.newsletter-block .white-box  .newsletter-form .button-wrapper .button {
+.button-wrapper .button {
     color: rgba(255, 255, 255, 1);
     font-weight: 600;
     font-size: 16px;
@@ -493,7 +494,7 @@
     background: #95CCB5;
 }
 
-.product .favorite-button {
+.favorite-button {
     position: absolute;
     top: 15px;
     right: 20px;
@@ -511,19 +512,19 @@
     transition: all 0.3s;
 }
 
-.product .favorite-button:hover {
+ .favorite-button:hover {
     transform: scale(1.1);
 }
 
-.product .favorite-button.active {
+.favorite-button.active {
     background: #ff4444;
 }
 
-.product .favorite-button.active img {
+.favorite-button.active img {
     filter: brightness(0) invert(1);
 }
 
-.product .favorite-button img {
+.favorite-button img {
     width: 20px;
     height: 20px;
 }

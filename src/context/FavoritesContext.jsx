@@ -11,20 +11,24 @@ export const useFavorites = () => {
 };
 
 export const FavoritesProvider = ({ children }) => {
-    const [favorites, setFavorites] = useState([]);
-    const [favoritesCount, setFavoritesCount] = useState(0);
+    const [favorites, setFavorites] = useState(() => {
+    try {
+        return JSON.parse(localStorage.getItem('favorites')) || [];
+    } catch {
+        return [];
+    }
+});
 
     useEffect(() => {
-        const savedFavorites = localStorage.getItem('favorites');
-        if (savedFavorites) {
-            setFavorites(JSON.parse(savedFavorites));
+        try {
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+        } catch (error) {
+            console.error('Error saving favorites to localStorage:', error);
         }
-    }, []);
-
-    useEffect(() => {
-        setFavoritesCount(favorites.length);
-        localStorage.setItem('favorites', JSON.stringify(favorites));
     }, [favorites]);
+
+
+    const favoritesCount = favorites.length;
 
     const addToFavorites = (product) => {
         setFavorites(prev => {

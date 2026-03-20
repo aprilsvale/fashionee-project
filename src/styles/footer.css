@@ -3,71 +3,71 @@
     position: relative;
 }
 
-.footer .footer-info {
+.footer-info {
     margin: 110px 0 90px 0;
     display: flex;
     position: relative;
 }
 
-.footer .footer-info .column .title,
-.footer .footer-info .column .title {
-    font-family: Josefin Sans;
+
+.title {
+    font-family: "Josefin Sans", sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
 }
 
-.footer .footer-info .column-1 {
+.column-1 {
     max-width: 331px;
     margin: 0 60px 0 0;
 }
 
-.footer .footer-info .column-2 {
+.column-2 {
     margin: 0 108px 0 0;
 }
 
-.footer .footer-info .column-3 {
+.column-3 {
     margin: 0 74px 0 0;
     max-width: 119px;
     width: 100%;
 }
 
-.footer .footer-info .column-2,
-.footer .footer-info .column-3 {
+.column-2,
+.column-3 {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.footer .footer-info .custom-list .item {
+.item {
     gap: 12px;
 }
 
-.footer .footer-info .custom-list .item::before {
+.item::before {
     width: 3px;
     height: 3px;
 }
 
 
-.footer .footer-info .custom-list a,
-.footer .footer-info .custom-list a {
+.custom-list a,
+.custom-list a {
     text-decoration: none;
-    font-family: Raleway;
+    font-family: "Raleway", sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 170%;
     color: #444444;
 }
 
-.footer .footer-info .column-4 {
+.column-4 {
     max-width: 361px;
 }
 
-.footer .footer-info .column-4 .title {
+.title {
     margin: 0 0 16px 0;
 }
 
-.footer .footer-info .column-4 .newsletter-text {
+.newsletter-text {
     margin: 0 0 36px 0;
     font-weight: 400;
     font-size: 14px;
@@ -75,25 +75,25 @@
     color: rgba(68, 68, 68, 1);
 }
 
-.footer .footer-info .column-4 .newsletter-form {
+.newsletter-form {
     position: relative;
 }
 
 
-.footer .footer-info .column-4 .newsletter-form .input {
+.input {
     padding-right: 0px;
 }
 
-.footer .footer-info .column-4 .newsletter-form .send-icon{
+.send-icon{
     position: absolute;
     right: 0
 }
 
-.footer .footer-info .logo {
+.logo {
     margin: 0 0 25px 0;
 }
 
-.footer .footer-info .about-brand {
+.about-brand {
     padding: 0 0 25px 0;
     border-bottom: 1px solid rgba(68, 68, 68, 20%);
     margin: 0 0 35px 0;
@@ -105,7 +105,7 @@
     color: rgba(68, 68, 68, 1);
 }
 
-.footer .copyright {
+.copyright {
     display: flex;
     justify-content: space-between;
     gap: 15px;
@@ -117,13 +117,13 @@
     color: rgba(68, 68, 68, 1);
 }
 
-.footer .copyright .payment-methods-container{
+.payment-methods-container{
     display: flex;
     gap: 13px;
     align-items: center;
 }
 
-.footer .copyright .payment-methods-container .payment-methods{
+.payment-methods{
     display: flex;
     gap: 8px;
     font-weight: 400;

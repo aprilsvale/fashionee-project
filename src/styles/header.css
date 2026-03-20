@@ -12,18 +12,18 @@
 
 }
 
-.header .left-side .logo-container {
+.logo-container {
     display: flex;
     gap: 40px;
     align-items: center;
 }
 
-.header .left-side .logo-container .burger-menu .burger-checkbox {
+.burger-checkbox {
     position: absolute;
     visibility: hidden;
 }
 
-.header .left-side .logo-container .burger-menu .burger {
+.burger {
     cursor: pointer;
     display: block;
     position: relative;
@@ -33,8 +33,8 @@
     height: 14px;
 }
 
-.header .left-side .logo-container .burger-menu .burger::before,
-.header .left-side .logo-container .burger-menu .burger::after {
+.burger::before,
+.burger::after {
     content: '';
     left: 0;
     position: absolute;
@@ -45,36 +45,36 @@
     background: #000;
 }
 
-.header .left-side .logo-container .burger-menu .burger::before {
+.burger::before {
     top: 0;
     box-shadow: 0 11px 0 #000;
     transition: box-shadow .3s .15s, top .3s .15s, transform .3s;
 }
 
-.header .left-side .logo-container .burger-menu .burger::after {
+.burger::after {
     bottom: 6.5px;
     transition: bottom .3s .15s, transform .3s;
 }
 
-.header .left-side .logo-container .burger-menu .burger-checkbox:checked + .burger::before {
+ .burger-checkbox:checked + .burger::before {
     top: 2px;
     transform: rotate(45deg);
     box-shadow: 0 6px 0 rgba(0,0,0,0);
     transition: box-shadow .15s, top .3s, transform .3s .15s;
 }
 
-.header .left-side .logo-container .burger-menu .burger-checkbox:checked + .burger::after {
+.burger-checkbox:checked + .burger::after {
     bottom: 10px;
     transform: rotate(-45deg);
     transition: bottom .3s, transform .3s .15s;
 }
 
-.header .left-side .menu {
+ .menu {
     display: flex;
     gap: 40px;
 }
 
-.header .left-side .menu .menu-item {
+ .menu-item {
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -84,53 +84,49 @@
     line-height: 100%;
 }
 
-.header .left-side .menu .menu-item .arrow-hover {
+.arrow-hover {
     display: none;
 
 }
 
-.header .left-side .menu .menu-item .active,
-.header .left-side .menu .menu-item:hover {
+ .menu-item .active,
+.menu-item:hover {
     color: #FF8E8E;
 
 }
 
-.header .left-side .menu .menu-item .active .arrow-default {
+.arrow-default {
     display: none;
 }
 
-.header .left-side .menu .menu-item .active .arroe-hover {
+.arrow-hover {
     display: inline-block;
 }
 
-.header .left-side .menu .menu-item:hover .arrow-hover {
-    display: inline-block;
-
-}
-
-.header .left-side .menu .menu-item:hover .arrow-default {
+ .menu-item:hover .arrow-default {
     display: none;
 
 }
 
-.header .left-side .logo-container .logo {
+.logo-container .logo {
     display: flex;
+    cursor: pointer;
 
 }
 
-.header .right-side {
+.right-side {
     display: flex;
     align-items: center;
     gap: 40px;
 }
 
-.header .right-side .header-icon {
+.header-icon {
     display: flex;
-    align-items: centr;
+    align-items: center;
     gap: 4px;
 }
 
-.header .right-side .header-icon .counter {
+ .counter {
     background-color: black;
     color: white;
     border-radius: 50%;

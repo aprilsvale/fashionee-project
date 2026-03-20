@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
 import {FavoritesProvider} from './context/FavoritesContext';
 import Header from './components/Header';
 import { CartProvider } from './context/CartContext';
 import Cart from './components/Cart';
-import Shop from './components/Shop';
+import Shop from './components/Shop.jsx';
 import Footer from './components/Footer';
+import { useState } from 'react';
 import './styles/reset.css';
-import './styles/header.css';
-import './styles/footer.css';
 import './styles/commons.css';
-import './styles/cart.css';
+import './styles/header.css';
 import './styles/shop.css';
+import './styles/cart.css';
+import './styles/footer.css';
+
+
 
 function App() {
     const [currentPage, setCurrentPage] = useState('shop');

@@ -11,7 +11,13 @@ export const useCart = () => {
 };
 
 export const CartProvider = ({ children }) => {
-    const [cartItems, setCartItems] = useState([]);
+    const [cartItems, setCartItems] = useState(() => {
+        try {
+            return JSON.parse(localStorage.getItem('cart')) || [];
+        } catch {
+            return [];
+        }
+    });
     const [cartCount, setCartCount] = useState(0);
     const [cartTotal, setCartTotal] = useState(0);
 
@@ -121,4 +127,3 @@ export const CartProvider = ({ children }) => {
         </CartContext.Provider>
     );
 };
-
