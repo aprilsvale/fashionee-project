@@ -1,58 +1,272 @@
 [
   {
     "id": 1,
-    "title": "Fashionee - cotton shirt (S)",
-    "price": 35.99,
-    "oldPrice": 52.99,
+    "title": "Men's Classic Cotton T-Shirt",
+    "category": "Men",
+    "color": "black",
+    "price": 29.99,
+    "oldPrice": 49.99,
     "image": ""
   },
   {
     "id": 2,
-    "title": "Fashionee - cotton shirt (M)",
-    "price": 35.99,
-    "oldPrice": 52.99,
+    "title": "Men's Slim Fit Jeans",
+    "category": "Men",
+    "color": "blue",
+    "price": 59.99,
+    "oldPrice": 89.99,
     "image": ""
   },
   {
     "id": 3,
-    "title": "Fashionee - cotton shirt (L)",
-    "price": 35.99,
-    "oldPrice": 52.99,
+    "title": "Men's Leather Jacket",
+    "category": "Men",
+    "color": "black",
+    "price": 149.99,
+    "oldPrice": 199.99,
     "image": ""
   },
   {
     "id": 4,
-    "title": "Fashionee - cotton shirt (XL)",
-    "price": 35.99,
-    "oldPrice": 52.99,
+    "title": "Women's Floral Summer Dress",
+    "category": "Women",
+    "color": "red",
+    "price": 45.99,
+    "oldPrice": 69.99,
     "image": ""
   },
   {
     "id": 5,
-    "title": "Fashionee - cotton shirt (S)",
-    "price": 35.99,
-    "oldPrice": 52.99,
+    "title": "Women's Cotton Sweater",
+    "category": "Women",
+    "color": "green",
+    "price": 39.99,
+    "oldPrice": 59.99,
     "image": ""
   },
   {
     "id": 6,
-    "title": "Fashionee - cotton shirt (M)",
-    "price": 35.99,
-    "oldPrice": 52.99,
+    "title": "Women's Denim Jacket",
+    "category": "Women",
+    "color": "blue",
+    "price": 69.99,
+    "oldPrice": 99.99,
     "image": ""
   },
   {
     "id": 7,
-    "title": "Fashionee - cotton shirt (L)",
-    "price": 35.99,
-    "oldPrice": 52.99,
+    "title": "Unisex Cotton Hoodie",
+    "category": "Accessories",
+    "color": "yellow",
+    "price": 54.99,
+    "oldPrice": 79.99,
     "image": ""
   },
   {
     "id": 8,
-    "title": "Fashionee - cotton shirt (XL)",
-    "price": 35.99,
-    "oldPrice": 52.99,
+    "title": "Leather Crossbody Bag",
+    "category": "Accessories",
+    "color": "black",
+    "price": 89.99,
+    "oldPrice": 129.99,
+    "image": ""
+  },
+  {
+    "id": 9,
+    "title": "Men's Casual Blazer",
+    "category": "Men",
+    "color": "blue",
+    "price": 119.99,
+    "oldPrice": 159.99,
+    "image": ""
+  },
+  {
+    "id": 10,
+    "title": "Women's High Heel Shoes",
+    "category": "Women",
+    "color": "red",
+    "price": 79.99,
+    "oldPrice": 119.99,
+    "image": ""
+  },
+  {
+    "id": 11,
+    "title": "Summer Straw Hat",
+    "category": "Accessories",
+    "color": "yellow",
+    "price": 24.99,
+    "oldPrice": 39.99,
+    "image": ""
+  },
+  {
+    "id": 12,
+    "title": "Men's Sports Sneakers",
+    "category": "Men",
+    "color": "black",
+    "price": 84.99,
+    "oldPrice": 124.99,
+    "image": ""
+  },
+  {
+    "id": 13,
+    "title": "Women's Yoga Pants",
+    "category": "Women",
+    "color": "green",
+    "price": 34.99,
+    "oldPrice": 54.99,
+    "image": ""
+  },
+  {
+    "id": 14,
+    "title": "Cashmere Scarf",
+    "category": "Accessories",
+    "color": "red",
+    "price": 44.99,
+    "oldPrice": 69.99,
+    "image": ""
+  },
+  {
+    "id": 15,
+    "title": "Men's Winter Parka",
+    "category": "Men",
+    "color": "green",
+    "price": 189.99,
+    "oldPrice": 249.99,
+    "image": ""
+  },
+  {
+    "id": 16,
+    "title": "Women's Silk Blouse",
+    "category": "Women",
+    "color": "yellow",
+    "price": 64.99,
+    "oldPrice": 94.99,
+    "image": ""
+  },
+  {
+    "id": 17,
+    "title": "Classic Aviator Sunglasses",
+    "category": "Accessories",
+    "color": "black",
+    "price": 129.99,
+    "oldPrice": 179.99,
+    "image": ""
+  },
+  {
+    "id": 18,
+    "title": "Men's Wool Sweater",
+    "category": "Men",
+    "color": "blue",
+    "price": 74.99,
+    "oldPrice": 109.99,
+    "image": ""
+  },
+  {
+    "id": 19,
+    "title": "Women's Leather Boots",
+    "category": "Women",
+    "color": "black",
+    "price": 99.99,
+    "oldPrice": 149.99,
+    "image": ""
+  },
+  {
+    "id": 20,
+    "title": "Cotton Baseball Cap",
+    "category": "Accessories",
+    "color": "green",
+    "price": 19.99,
+    "oldPrice": 29.99,
+    "image": ""
+  },
+  {
+    "id": 21,
+    "title": "Men's Linen Shirt",
+    "category": "Men",
+    "color": "blue",
+    "price": 49.99,
+    "oldPrice": 74.99,
+    "image": ""
+  },
+  {
+    "id": 22,
+    "title": "Silver Chain Necklace",
+    "category": "Accessories",
+    "color": "silver",
+    "price": 34.99,
+    "oldPrice": 54.99,
+    "image": ""
+  },
+  {
+    "id": 23,
+    "title": "Leather Wallet",
+    "category": "Accessories",
+    "color": "brown",
+    "price": 29.99,
+    "oldPrice": 49.99,
+    "image": ""
+  },
+  {
+    "id": 24,
+    "title": "Gold Plated Earrings",
+    "category": "Accessories",
+    "color": "gold",
+    "price": 39.99,
+    "oldPrice": 69.99,
+    "image": ""
+  },
+  {
+    "id": 25,
+    "title": "Wool Beanie Hat",
+    "category": "Accessories",
+    "color": "gray",
+    "price": 19.99,
+    "oldPrice": 34.99,
+    "image": ""
+  },
+  {
+    "id": 26,
+    "title": "Leather Belt",
+    "category": "Accessories",
+    "color": "brown",
+    "price": 24.99,
+    "oldPrice": 39.99,
+    "image": ""
+  },
+  {
+    "id": 27,
+    "title": "Smart Watch",
+    "category": "Accessories",
+    "color": "black",
+    "price": 199.99,
+    "oldPrice": 299.99,
+    "image": ""
+  },
+  {
+    "id": 28,
+    "title": "Silk Tie",
+    "category": "Accessories",
+    "color": "red",
+    "price": 29.99,
+    "oldPrice": 49.99,
+    "image": ""
+  },
+  {
+    "id": 29,
+    "title": "Winter Gloves",
+    "category": "Accessories",
+    "color": "gray",
+    "price": 14.99,
+    "oldPrice": 24.99,
+    "image": ""
+  },
+  {
+    "id": 30,
+    "title": "Canvas Backpack",
+    "category": "Accessories",
+    "color": "green",
+    "price": 49.99,
+    "oldPrice": 79.99,
     "image": ""
   }
 ]

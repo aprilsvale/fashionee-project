@@ -1,11 +1,12 @@
 import ProductCard from './ProductCard.jsx';
-import data from './products.json';
 import Pagination from './Pagination';
-const ProductList = () => {
+
+
+const ProductList = ({products}) => {
     return (
         <div className="products-wrapper">
             <div className="sort-and-count">
-                <div>Showing 1–8 of 21 results</div>
+                <div>Showing 1–{products.length} of 2{products.length} results</div>
                 <div className="sort">
                     <select className="input">
                         <option>Sort by popularity</option>
@@ -16,7 +17,7 @@ const ProductList = () => {
             </div>
 
         <div className="products">
-            {data.map(product => (
+            {products.map(product => (
                 <ProductCard
                     key={product.id}
                     product={product}

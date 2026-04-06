@@ -1,83 +1,52 @@
-import magnifierSvg from '../icons/magnifier.svg';
 import bannerSvg from '../icons/banner.svg';
+import Search from './Search';
+import Categories from './Categories';
+import Price from './Price';
+import Colors from './Colors';
 
-const Sidebar = () => {
+const Sidebar = ({
+                     onSearch,
+                     filters,
+                 selectedCategory,
+                 onCategoryChange,
+                 priceRange,
+                 onPriceChange,
+                 selectedColors,
+                 onColorsChange,
+                 onApplyFilters
+}) => {
+    const {categories, colors, priceRange: availablePriceRange} = filters;
     return (
         <div className="sidebar">
             <div className="search">
-                <label>
-                    <input type="text" placeholder="Search" className="input search-row" />
-                    <img src={magnifierSvg} alt="search-icon" className="search-icon" />
-                </label>
+                <Search onSearch={onSearch} />
             </div>
 
             <div className="sidebar-item">
                 <div className="button-wrapper">
-                    <button className="button">Apply Filter</button>
+                    <button className="button" onClick={onApplyFilters}>
+                        Apply Filter
+                    </button>
                     <div className="vertical-line"></div>
                 </div>
             </div>
 
-            <div className="sidebar-item">
-                <div className="sidebar-title">Categories</div>
-                <div className="sidebar-content">
-                    <ul className="custom-list">
-                        <li className="item">All</li>
-                        <li className="item active">Men</li>
-                        <li className="item">Women</li>
-                        <li className="item">Accessories</li>
-                        <li className="item">New Arrivals</li>
-                    </ul>
-                </div>
-            </div>
+            <Categories
+                categories={categories}
+                onCategoryChange={onCategoryChange}
+            />
 
-            <div className="sidebar-item">
-                <div className="sidebar-title">Price</div>
-                <div className="sidebar-content">
-                    <div className="price-bar">
-                        <input type="text" placeholder="0" className="input" />
-                        <input type="text" placeholder="200" className="input" />
-                    </div>
-                </div>
-            </div>
+            <Price
+                minPrice={availablePriceRange.min}
+                maxPrice={availablePriceRange.max}
+                onPriceChange={onPriceChange}
+            />
 
-            <div className="sidebar-item">
-                <div className="sidebar-title">Colors</div>
-                <div className="sidebar-content">
-                    <div className="colors">
-                        <div className="color">
-                            <div className="checkbox-item">
-                                <input type="checkbox" className="color-checkbox" id="black" name="black" value="black" />
-                                <label htmlFor="black" className="color-name">Black</label>
-                            </div>
-                        </div>
-                        <div className="color">
-                            <div className="checkbox-item">
-                                <input type="checkbox" className="color-checkbox" id="blue" name="blue" value="blue" />
-                                <label htmlFor="blue" className="color-name">Blue</label>
-                            </div>
-                        </div>
-                        <div className="color">
-                            <div className="checkbox-item">
-                                <input type="checkbox" className="color-checkbox" id="red" name="red" value="red" />
-                                <label htmlFor="red" className="color-name">Red</label>
-                            </div>
-                        </div>
-                        <div className="color">
-                            <div className="checkbox-item">
-                                <input type="checkbox" className="color-checkbox" id="yellow" name="yellow" value="yellow" />
-                                <label htmlFor="yellow" className="color-name">Yellow</label>
-                            </div>
-                        </div>
-                        <div className="color">
-                            <div className="checkbox-item">
-                                <input type="checkbox" className="color-checkbox" id="green" name="green" value="green" />
-                                <label htmlFor="green" className="color-name">Green</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Colors
+                availableColors={colors}
+                onColorsChange={onColorsChange}
+                />
+
 
             <div className="sidebar-item">
                 <div className="sidebar-title">Reviewed By You</div>

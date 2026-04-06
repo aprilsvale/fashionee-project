@@ -22,13 +22,6 @@ export const CartProvider = ({ children }) => {
     const [cartTotal, setCartTotal] = useState(0);
 
     useEffect(() => {
-        const savedCart = localStorage.getItem('cart');
-        if (savedCart) {
-            setCartItems(JSON.parse(savedCart));
-        }
-    }, []);
-
-    useEffect(() => {
         const count = cartItems.reduce((total, item) => total + item.quantity, 0);
         const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
@@ -73,28 +66,14 @@ export const CartProvider = ({ children }) => {
     };
 
     const incrementQuantity = (productId) => {
-        setCartItems(prev =>
-            prev.map(item =>
-                item.id === productId
-                    ? { ...item, quantity: item.quantity + 1 }
-                    : item
-            )
-        );
+        updateQuantity(productId, getItemQuantity(productId) + 1);
     };
 
+
     const decrementQuantity = (productId) => {
-        setCartItems(prev => {
-            const item = prev.find(item => item.id === productId);
-            if (item && item.quantity === 1) {
-                return prev.filter(item => item.id !== productId);
-            }
-            return prev.map(item =>
-                item.id === productId
-                    ? { ...item, quantity: item.quantity - 1 }
-                    : item
-            );
-        });
+        updateQuantity(productId, getItemQuantity(productId) - 1);
     };
+
 
     const clearCart = () => {
         setCartItems([]);

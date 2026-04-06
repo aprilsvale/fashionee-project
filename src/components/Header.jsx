@@ -8,7 +8,7 @@ import profileSvg from '../icons/profile.svg';
 import heartSvg from '../icons/heart.svg';
 import cartSvg from '../icons/cart.svg';
 
-const Header = ({ currentPage, onPageChange }) => {
+const Header = ({ onPageChange }) => {
     const { favoritesCount } = useFavorites();
     const { cartCount } = useCart();
 
