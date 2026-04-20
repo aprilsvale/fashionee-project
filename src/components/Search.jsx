@@ -1,29 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import magnifierSvg from '../icons/magnifier.svg';
 
 const Search = ({ onSearch }) => {
+    console.log("found")
     const [searchTerm, setSearchTerm] = useState('');
-    const isFirstRender = useRef(true);
-    const onSearchRef = useRef(onSearch);
 
     useEffect(() => {
-        onSearchRef.current = onSearch;
-    }, [onSearch]);
-
-    useEffect(() => {
-        if (isFirstRender.current) {
-            isFirstRender.current = false;
-            return;
-        }
-
         const timer = setTimeout(() => {
-            if (typeof onSearchRef.current === 'function') {
-                onSearchRef.current(searchTerm);
-            }
+            onSearch(searchTerm);
         }, 300);
 
         return () => clearTimeout(timer);
-    }, [searchTerm]);
+    }, [searchTerm, onSearch]);
 
     return (
         <label>

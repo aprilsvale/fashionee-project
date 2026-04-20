@@ -6,71 +6,66 @@ import { parseFilters } from '../utils/filterParser';
 import React, { useState, useMemo, useCallback} from 'react';
 
 const Shop = () => {
-    const [filteredProducts, setFilteredProducts] = useState(products);
 
     const [selectedCategory, setSelectedCategory] = useState("All");
     const [priceFilter, setPriceFilter] = useState({min: null, max: null});
-    const [ selectedColors, setSelectedColors] = useState([]);
+    const [selectedColors, setSelectedColors] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
+
+    const [appliedCategory, setAppliedCategory] = useState("All");
+    const [appliedColors, setAppliedColors] = useState([]);
+    const [appliedPriceRange, setAppliedPriceRange] = useState({ min: null, max: null });
+    const [appliedSearchQuery, setAppliedSearchQuery] = useState('');
 
     const filters = useMemo(() => parseFilters(products), []);
 
-    const applyFilters = useCallback(() => {
+    const filteredProducts = useMemo(() => {
         let result = [...products];
 
-        if (searchQuery.trim()) {
+        if (appliedSearchQuery.trim()) {
             result = result.filter(product =>
-                product.title.toLowerCase().includes(searchQuery.toLowerCase())
+                product.title.toLowerCase().includes(appliedSearchQuery.toLowerCase())
             );
         }
 
-        if (selectedCategory !== 'All') {
+        if (appliedCategory !== 'All') {
             result = result.filter(product =>
-                product.category === selectedCategory
+                product.category === appliedCategory
             );
         }
 
-        if (priceFilter.min !== null && priceFilter.min !== '') {
+        if (appliedPriceRange.min !== null && appliedPriceRange.min !== '') {
             result = result.filter(product =>
-                product.price >= Number(priceFilter.min)
-            );
-        }
-        if (priceFilter.max !== null && priceFilter.max !== '') {
-            result = result.filter(product =>
-                product.price <= Number(priceFilter.max)
+                product.price >= Number(appliedPriceRange.min)
             );
         }
 
-        if (selectedColors.length > 0) {
+        if (appliedPriceRange.max !== null && appliedPriceRange.max !== '') {
             result = result.filter(product =>
-                selectedColors.includes(product.color)
+                product.price >= Number(appliedPriceRange.max)
             );
         }
 
-        setFilteredProducts(result);
-    }, [searchQuery, selectedCategory, priceFilter, selectedColors]);
+        if (appliedColors.length > 0) {
+            result = result.filter(product =>
+                appliedColors.includes(product.color)
+            );
+        }
+
+        return result;
+    }, [appliedSearchQuery, appliedCategory, appliedColors, appliedPriceRange]);
 
     const handleSearch = useCallback((query) => {
         setSearchQuery(query);
+    }, []);
 
-        let result = [...products];
 
-        if (query.trim()) {
-            result = result.filter(product =>
-                product.title.toLowerCase().includes(query.toLowerCase())
-            );
-        }
-
-        if (selectedCategory !== 'All') {
-            result = result.filter(product => product.category === selectedCategory);
-        }
-
-        if (selectedColors.length > 0) {
-            result = result.filter(product => selectedColors.includes(product.color));
-        }
-
-        setFilteredProducts(result);
-    }, [selectedCategory, selectedColors]);
+    const applyFilters = useCallback(() => {
+        setAppliedCategory(selectedCategory);
+        setAppliedColors(selectedColors);
+        setAppliedPriceRange(priceFilter);
+        setAppliedSearchQuery(searchQuery);
+    }, [selectedCategory, selectedColors, priceFilter, searchQuery]);
 
     return (
         <>
