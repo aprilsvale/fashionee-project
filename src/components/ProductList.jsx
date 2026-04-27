@@ -7,14 +7,9 @@ const ProductList = ({products}) => {
         <div className="products-wrapper">
             <div className="sort-and-count">
                 <div>Showing {products.length} results</div>
-                <div className="sort">
-                    <select className="input">
-                        <option>Sort by popularity</option>
-                        <option>Sort by price</option>
-                        <option>Sort by rating</option>
-                    </select>
-                </div>
             </div>
+
+
 
         <div className="products">
             {products.map(product => (
@@ -24,7 +19,7 @@ const ProductList = ({products}) => {
                         />
             ))}
         </div>
-        <Pagination />
+            <Pagination />
     </div>
     );
 };
