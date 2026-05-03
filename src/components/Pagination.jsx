@@ -1,15 +1,34 @@
-const Pagination = () => {
+const Pagination = ({onPageChange, currentPage}) => {
+
     return (
         <>
             <div className="pagination">
                 <div className="pages">
-                    <span className="page active">1</span>
-                    <span className="page">2</span>
-                    <span className="page">3</span>
-                    <span className="page">4</span>
-                    <span className="page">5</span>
+                    <button
+                        className="page"
+                        onClick={() => {
+                            console.log('Клик по 1, передаю:', 1);
+                            onPageChange(1);
+                        }}
+                    >1</button>
+                    <button
+                        className="page"
+                        onClick={() => onPageChange(2)}
+                    >2</button>
+                    <button
+                        className="page"
+                        onClick={() => onPageChange(3)}
+                    >3</button>
                 </div>
-                <button className="button">Next</button>
+                <button
+                    className="button"
+                    onClick={() => {
+                        console.log('Next, передаю:', currentPage + 1);
+                        onPageChange(currentPage + 1);
+                    }}
+
+                    disabled={currentPage === 3}
+                >Next</button>
             </div>
         </>
     );

@@ -12,7 +12,6 @@ const Shop = () => {
     const [selectedCategory, setSelectedCategory] = useState("All");
     const [priceFilter, setPriceFilter] = useState({min: null, max: null});
     const [selectedColors, setSelectedColors] = useState([]);
-    const [searchQuery, setSearchQuery] = useState('');
     const [sortType, setSortType] = useState('relevance');
 
     const [appliedCategory, setAppliedCategory] = useState("All");
@@ -20,6 +19,9 @@ const Shop = () => {
     const [appliedPriceRange, setAppliedPriceRange] = useState({ min: null, max: null });
     const [appliedSearchQuery, setAppliedSearchQuery] = useState('');
     const [appliedSortType, setAppliedSortType] = useState('relevance');
+
+    const [currentPage, setCurrentPage] = useState(1)
+    console.log('Shop рендер, currentPage:', currentPage, 'setCurrentPage:', typeof setCurrentPage);
 
 
     const filters = useMemo(() => parseFilters(products), []);
@@ -79,9 +81,14 @@ const Shop = () => {
         return sorted.sort((a, b) => b.relevance - a.relevance);
     }, [filteredProducts, appliedSortType]);
 
+    const itemsPerPage = 6;
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentProducts = sortedProducts.slice(startIndex, endIndex);
+
 
     const handleSearch = useCallback((query) => {
-        setSearchQuery(query);
+        setAppliedSearchQuery(query);
     }, []);
 
     const handleSortChange = useCallback((sort) => {
@@ -95,9 +102,9 @@ const Shop = () => {
         setAppliedCategory(selectedCategory);
         setAppliedColors(selectedColors);
         setAppliedPriceRange(priceFilter);
-        setAppliedSearchQuery(searchQuery);
         setAppliedSortType(sortType);
-    }, [selectedCategory, selectedColors, priceFilter, searchQuery, sortType]);
+        setCurrentPage(1);
+    }, [selectedCategory, selectedColors, priceFilter, sortType]);
 
     return (
         <>
@@ -116,8 +123,13 @@ const Shop = () => {
                     sortType={sortType}
                     onSortChange={handleSortChange}
                 />
-                <ProductList products={sortedProducts} />
+                <ProductList
+                    products={currentProducts}
+                    currentPage={currentPage}
+                    onPageChange={setCurrentPage}
+                />
             </div>
+
         </>
     );
 };

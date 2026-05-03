@@ -21,13 +21,13 @@ const Price = ({minPrice, maxPrice, onPriceChange}) => {
             <div className="sidebar-title">Price</div>
             <div className="sidebar-content">
                 <div className="price-bar">
-                    <input type="text"
+                    <input type="number"
                            placeholder={minPrice}
                            className="input"
                            value={min}
                            onChange={handleMinChange}
                     />
-                    <input type="text"
+                    <input type="number"
                            placeholder={maxPrice}
                            className="input"
                            value={max}

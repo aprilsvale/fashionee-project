@@ -17,10 +17,7 @@ const CartItem = ({ item }) => {
                             <div className="current-price">${item.price}</div>
                         </div>
                         <div className="quantity">
-                            <button
-                                className="count-button"
-                                onClick={() => decrementQuantity(item.id)}
-                            >-</button>
+                            ы
                             <div className="count">{item.quantity}</div>
                             <button
                                 className="count-button"
