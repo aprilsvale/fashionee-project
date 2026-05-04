@@ -22,15 +22,6 @@ const Sidebar = ({
                 <Search onSearch={onSearch} />
             </div>
 
-            <div className="sidebar-item">
-                <div className="button-wrapper">
-                    <button className="button" onClick={onApplyFilters}>
-                        Apply Filter
-                    </button>
-                    <div className="vertical-line"></div>
-                </div>
-            </div>
-
             <Categories
                 categories={categories}
                 onCategoryChange={onCategoryChange}
@@ -46,6 +37,15 @@ const Sidebar = ({
                 availableColors={colors}
                 onColorsChange={onColorsChange}
                 />
+
+            <div className="sidebar-item">
+                <div className="button-wrapper">
+                    <button className="button" onClick={onApplyFilters}>
+                        Apply Filter
+                    </button>
+                    <div className="vertical-line"></div>
+                </div>
+            </div>
 
 
             <div className="sidebar-item">
