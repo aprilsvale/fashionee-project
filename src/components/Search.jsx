@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import magnifierSvg from '../icons/magnifier.svg';
 
 const Search = ({ onSearch }) => {
-    console.log("found")
     const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {

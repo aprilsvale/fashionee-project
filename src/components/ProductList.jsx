@@ -1,25 +1,23 @@
-import ProductCard from './ProductCard.jsx';
+import ProductCard from './ProductCard';
 import Pagination from './Pagination';
 
-const ProductList = ({products, currentPage, onPageChange}) => {
+const ProductList = ({ products, currentPage, onPageChange, totalPages }) => {
     return (
         <div className="products-wrapper">
-            <div className="sort-and-count">
-                <div>Showing {products.length} results</div>
-            </div>
-
             <div className="products">
-                {products.map(product => (
-                    <ProductCard
-                        key={product.id}
-                        product={product}
-                    />
-                ))}
+                {products.length === 0 ? (
+                    <div className="no-products">No products found</div>
+                ) : (
+                    products.map(product => (
+                        <ProductCard key={product.id} product={product} />
+                    ))
+                )}
             </div>
 
             <Pagination
                 currentPage={currentPage}
                 onPageChange={onPageChange}
+                totalPages={totalPages}
             />
         </div>
     );
