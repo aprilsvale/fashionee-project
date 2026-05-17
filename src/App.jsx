@@ -8,7 +8,7 @@ import { useState } from 'react';
 import './styles/reset.css';
 import './styles/commons.css';
 import './styles/header.css';
-import './styles/shop.css';
+import './styles/shop.scss'
 import './styles/cart.css';
 import './styles/footer.css';
 

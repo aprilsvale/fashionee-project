@@ -1,0 +1,573 @@
+
+$color-primary: #FF8E8E;      // основной акцентный цвет (розовый)
+$color-dark: #000000;          // черный цвет
+$color-white: #FFFFFF;         // белый
+$color-light-bg: #F1F2F3;     // светлый фон для блоков
+$color-gray: #444444;          // серый для текста
+$color-green: #95CCB5;         // зеленый для метки "новинка"
+
+
+$font-main: "Josefin Sans", sans-serif;
+
+
+$container-width: 1800px;
+$gap-large: 150px;
+$gap-medium: 50px;
+$gap-small: 30px;
+
+
+$transition: all 0.3s ease;
+
+
+
+
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+@mixin flex-column($gap: 0) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+
+@mixin flex-row($gap: 0) {
+  display: flex;
+  flex-direction: row;
+  gap: $gap;
+}
+
+
+@mixin absolute-pos($top: auto, $left: auto, $right: auto, $bottom: auto) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  right: $right;
+  bottom: $bottom;
+}
+
+
+.subheader {
+  max-width: $container-width;
+  width: 100%;
+  margin: 50px auto 199px;
+
+  .dots1 {
+    @include absolute-pos($left: 0, $top: 36px);
+  }
+}
+
+// Блок с товарами и сайдбаром
+.shop-block {
+  display: flex;
+  gap: $gap-large;
+  justify-content: space-between;
+}
+
+// Группа с названием магазина
+.shop-group {
+  max-width: 850px;
+  width: 100%;
+  @include flex-column;
+  align-items: center;
+  position: relative;
+
+  .shop-name {
+    font-family: $font-main;
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 100%;
+  }
+
+  .long-line {
+    border: none;
+    height: 2px;
+    background-color: $color-dark;
+    @include absolute-pos($bottom: 110px);
+  }
+}
+
+// Хлебные крошки (Home / Shop)
+.home-and-shop {
+  @include flex-row(12px);
+
+  &-group {
+    @include flex-column;
+    align-items: flex-start;
+  }
+}
+
+// Активные и hover состояния для ссылок
+.home-part, .shop-part {
+  .active,
+  &:hover {
+    color: $color-primary;
+    cursor: pointer;
+  }
+}
+
+// Вертикальные линии
+.vertical-line {
+  width: 1.5px;
+  background: $color-dark;
+}
+
+.button-wrapper .vertical-line {
+  width: 2px;
+  height: 100%;
+  background: $color-dark;
+}
+
+// Фото магазина
+.shop-photo {
+  margin-right: 60px;
+  width: 800px;
+  height: 400px;
+}
+
+
+// ============================================
+// 4. ОСНОВНОЙ КОНТЕЙНЕР SHOP
+// ============================================
+
+.shop {
+  display: flex;
+  gap: $gap-medium;
+  padding: 30px;
+  justify-content: center;
+}
+
+
+// ============================================
+// 5. САЙДБАР (фильтры)
+// ============================================
+
+.sidebar {
+  max-width: 244px;
+  width: 100%;
+  @include flex-column($gap-large);
+
+  // Поиск
+  .search {
+    position: relative;
+
+    &-row {
+      padding: 0 20px 15px 0;
+      width: 200px;
+    }
+
+    &-icon {
+      @include absolute-pos($right: 0, $top: 0);
+    }
+  }
+
+  // Элементы сайдбара (категория, цена, цвет)
+  &-item {
+    @include flex-column($gap-small);
+  }
+
+  &-title {
+    font-family: $font-main;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: left;
+    border-bottom: 2px solid $color-dark;
+    padding-bottom: 15px;
+  }
+}
+
+// Ползунок цен (можно стилизовать под range input)
+.price-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+// Список с радио-кнопками (размеры)
+.custom-list {
+  margin: 0 0 0 20px;
+
+  input[type="radio"] {
+    display: none;
+  }
+}
+
+// Блок с цветами
+.colors {
+  @include flex-column(15px);
+  margin: 0 0 0 20px;
+}
+
+// Кастомные чекбоксы для цветов
+.color-checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+
+  & + .color-name {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      border: 2px solid #EEEEEE;
+      margin-right: 15px;
+      background-repeat: no-repeat;
+      background-position: center;
+      box-sizing: border-box;
+    }
+  }
+
+  &:checked + .color-name {
+    color: $color-primary;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+
+    &::before {
+      background-image: url("../icons/check-mark.svg");
+    }
+  }
+}
+
+// Просмотренные товары
+.reviewed-products {
+  @include flex-column(20px);
+
+  .product {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+    .image {
+      width: 75px;
+      height: 85px;
+      background: $color-light-bg;
+    }
+
+    .info {
+      max-width: 150px;
+      @include flex-column(15px);
+
+      .name {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 2px;
+        color: $color-gray;
+      }
+
+      .price {
+        gap: 10px;
+
+        .current-price {
+          font-size: 14px;
+          line-height: 14px;
+        }
+
+        .old-price {
+          font-size: 12px;
+          line-height: 12px;
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+}
+
+
+// ============================================
+// 6. КОНТЕЙНЕР С ТОВАРАМИ
+// ============================================
+
+.products-wrapper {
+  max-width: 846px;
+  width: 100%;
+  @include flex-column(40px);
+
+  // Сортировка и количество товаров
+  .sort-and-count {
+    @include flex-between;
+    gap: $gap-small;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 170%;
+
+    .bold {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 170%;
+    }
+
+    .sort {
+      max-width: 262px;
+      width: 100%;
+
+      .input {
+        color: $color-dark;
+      }
+    }
+  }
+
+  // Сетка товаров
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap-medium 30px;
+
+    .product {
+      max-width: 262px;
+      width: 100%;
+      @include flex-column(20px);
+
+      // Фото товара
+      .photo {
+        height: 360px;
+        background: $color-light-bg;
+        position: relative;
+
+        // Верхняя панель с метками и кнопкой избранного
+        .top-bar {
+          @include absolute-pos($top: 15px, $left: 20px);
+          @include flex-between;
+          max-width: 222px;
+          width: 100%;
+          z-index: 2;
+        }
+
+        .labels {
+          display: flex;
+          gap: 15px;
+        }
+
+        .label {
+          font-weight: 800;
+          font-size: 10px;
+          line-height: 10px;
+          color: $color-white;
+          text-transform: uppercase;
+          padding: 5px 10px;
+          background: $color-primary;
+
+          &.new {
+            background: $color-green;
+          }
+        }
+      }
+
+      // Кнопка "В избранное"
+      .favorite-button {
+        @include absolute-pos($top: 15px, $right: 20px);
+        width: 40px;
+        height: 40px;
+        border: none;
+        background: $color-white;
+        border-radius: 50%;
+        cursor: pointer;
+        @include flex-center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+        transition: $transition;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+
+        &.active {
+          background: #ff4444;
+
+          img {
+            filter: brightness(0) invert(1);
+          }
+        }
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      // Информация о товаре
+      .info {
+        @include flex-column(9px);
+
+        .name {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 27px;
+        }
+
+        .price {
+          display: flex;
+          gap: 15px;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 20px;
+          align-items: center;
+
+          .current-price {
+            font-family: $font-main;
+          }
+
+          .old-price {
+            font-family: $font-main;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 16px;
+            text-decoration: line-through;
+            color: $color-gray;
+          }
+        }
+      }
+
+      // Кнопка добавления в корзину
+      .add-to-cart-btn {
+        width: 100%;
+        padding: 17px 24px;
+        background: $color-dark;
+        color: $color-white;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 16px;
+        text-align: center;
+        transition: $transition;
+        margin-top: 15px;
+        text-transform: uppercase;
+
+        &:hover {
+          background: $color-primary;
+        }
+      }
+    }
+  }
+}
+
+// Пагинация
+.pagination {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: $gap-small;
+  align-items: center;
+
+  .pages {
+    display: flex;
+    gap: 20px;
+  }
+
+  .page {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    height: 25px;
+    width: 10px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    &.active {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 16px;
+      width: 22px;
+      text-align: center;
+      color: $color-primary;
+    }
+  }
+}
+
+
+// ============================================
+// 7. БЛОК НОВОСТНОЙ РАССЫЛКИ (Newsletter)
+// ============================================
+
+.container-news {
+  width: 1680px;
+  padding-left: 114px;
+}
+
+.newsletter-block {
+  height: 450px;
+  background: $color-light-bg;
+  margin: 200px 0 120px 0;
+  padding-left: 275px;
+
+  .white-box {
+    max-width: 624px;
+    width: 100%;
+    background: $color-white;
+    padding: 60px;
+  }
+
+  .title-newsletter {
+    font-family: $font-main;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 120%;
+  }
+
+  .dots {
+    @include absolute-pos($left: 15px, $bottom: 125px);
+  }
+
+  .newsletter-part {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 170%;
+    padding-bottom: 50px;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: $gap-small;
+
+    .button-wrapper {
+      position: relative;
+
+      .button {
+        color: $color-white;
+        font-weight: 600;
+        font-size: 16px;
+        text-align: center;
+        border: none;
+        background: $color-dark;
+        cursor: pointer;
+        width: 136px;
+        height: 50px;
+        @include flex-center;
+        box-sizing: border-box;
+      }
+
+      .vertical-line {
+        width: 2px;
+        height: 100%;
+        background: $color-dark;
+      }
+    }
+  }
+}
+
+// Вспомогательный класс
+.sort-and-product {
+  @include flex-column(15px);
+}

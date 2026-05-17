@@ -3,9 +3,11 @@ import { useCart } from "../context/CartContext";
 import CartItem from "./CartItem";
 import OrderSummary from "./OrderSummary";
 import PromoCode from "./PromoCode";
+import {useState} from "react";
 
 const Cart = () => {
-    const { cartItems } = useCart();
+    const { cartItems, cartTotal } = useCart();
+    const [finalPrice, setFinalPrice] = useState(cartTotal);
 
     return (
         <>
@@ -25,11 +27,16 @@ const Cart = () => {
 
                         {cartItems.length > 0 && (
                             <>
-                                <OrderSummary />
+                                <OrderSummary finalPrice={finalPrice}/>
                             </>)}
 
                     </div>
-                    <PromoCode />
+                    <PromoCode
+                        originalTotal={cartTotal}
+                        onApplyPromo={(newPrice) => {
+                            setFinalPrice(newPrice);
+                        }}
+                    />
                 </div>
             </div>
         </>

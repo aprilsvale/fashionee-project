@@ -1,4 +1,5 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useContext } from 'react';
+import useLocalStorage from './useLocalStorage';
 
 const FavoritesContext = createContext();
 
@@ -11,21 +12,7 @@ export const useFavorites = () => {
 };
 
 export const FavoritesProvider = ({ children }) => {
-    const [favorites, setFavorites] = useState(() => {
-    try {
-        return JSON.parse(localStorage.getItem('favorites')) || [];
-    } catch {
-        return [];
-    }
-});
-
-    useEffect(() => {
-        try {
-            localStorage.setItem('favorites', JSON.stringify(favorites));
-        } catch (error) {
-            console.error('Error saving favorites to localStorage:', error);
-        }
-    }, [favorites]);
+    const [favorites, setFavorites] = useLocalStorage('favorites', []);
 
 
     const favoritesCount = favorites.length;

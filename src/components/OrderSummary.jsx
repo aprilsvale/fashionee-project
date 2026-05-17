@@ -1,6 +1,13 @@
 import { useCart } from "../context/CartContext";
-const OrderSummary = () => {
+const OrderSummary = ({finalPrice}) => {
+
     const { cartItems, cartTotal } = useCart();
+
+    const discount = cartTotal - finalPrice;
+    const hasDiscount = discount > 0;
+    const delivery = 16;
+    const totalVeryTotal = finalPrice + delivery;
+
     return (
         <>
             {cartItems.length > 0 && (
@@ -11,10 +18,12 @@ const OrderSummary = () => {
                             <div className="name">Order price</div>
                             <div className="name-bold">${cartTotal.toFixed(2)}</div>
                         </div>
-                        <div className="price-row">
-                            <div className="name">Discount for promo code</div>
-                            <div>No</div>
-                        </div>
+                        {hasDiscount && (
+                            <div className="price-row discount">
+                                <div className="name">Discount for promo code</div>
+                                <div className="name-bold">-${discount.toFixed(2)}</div>
+                            </div>
+                        )}
                         <div className="price-row delimiter">
                             <div className="name">
                                 Delivery <span className="additional">(Aug 02 at 16:00)</span>
@@ -23,7 +32,7 @@ const OrderSummary = () => {
                         </div>
                         <div className="price-row total">
                             <div className="name">Total</div>
-                            <div className="name">${(cartTotal + 16).toFixed(2)}</div>
+                            <div className="name-bold">${totalVeryTotal.toFixed(2)}</div>
                         </div>
                     </div>
                     <div className="button-wrapper">
