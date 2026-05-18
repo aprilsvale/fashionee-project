@@ -8,7 +8,6 @@ import {useState} from "react";
         const handlePromo = () => {
             if (promoInput ==='ilovereact') {
                 onApplyPromo(originalTotal * 0.9);
-                console.log('doneeeeee')
                 setError('');
             } else {
                 setError('incorrect!');

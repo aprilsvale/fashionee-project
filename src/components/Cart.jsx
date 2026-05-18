@@ -4,10 +4,12 @@ import CartItem from "./CartItem";
 import OrderSummary from "./OrderSummary";
 import PromoCode from "./PromoCode";
 import {useState} from "react";
+import Checkout from "./Checkout";
 
 const Cart = () => {
     const { cartItems, cartTotal } = useCart();
     const [finalPrice, setFinalPrice] = useState(cartTotal);
+    const [orderTotal, setOrderTotal] = useState(0)
 
     return (
         <>
@@ -27,7 +29,10 @@ const Cart = () => {
 
                         {cartItems.length > 0 && (
                             <>
-                                <OrderSummary finalPrice={finalPrice}/>
+                                <div>
+                            <OrderSummary finalPrice={finalPrice} setOrderTotal={setOrderTotal} />
+                                <Checkout finalPrice={finalPrice} orderTotal={orderTotal} />
+                                </div>
                             </>)}
 
                     </div>

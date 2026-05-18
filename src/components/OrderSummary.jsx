@@ -1,5 +1,5 @@
 import { useCart } from "../context/CartContext";
-const OrderSummary = ({finalPrice}) => {
+const OrderSummary = ({finalPrice, setOrderTotal}) => {
 
     const { cartItems, cartTotal } = useCart();
 
@@ -7,6 +7,8 @@ const OrderSummary = ({finalPrice}) => {
     const hasDiscount = discount > 0;
     const delivery = 16;
     const totalVeryTotal = finalPrice + delivery;
+
+    setOrderTotal(totalVeryTotal);
 
     return (
         <>
@@ -34,10 +36,6 @@ const OrderSummary = ({finalPrice}) => {
                             <div className="name">Total</div>
                             <div className="name-bold">${totalVeryTotal.toFixed(2)}</div>
                         </div>
-                    </div>
-                    <div className="button-wrapper">
-                        <button className="button">Checkout</button>
-                        <div className="vertical-line"></div>
                     </div>
                 </div>
             )}
