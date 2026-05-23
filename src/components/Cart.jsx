@@ -10,6 +10,22 @@ const Cart = () => {
     const { cartItems, cartTotal } = useCart();
     const [finalPrice, setFinalPrice] = useState(cartTotal);
     const [orderTotal, setOrderTotal] = useState(0)
+    const [discountPercent, setDiscountPercent] = useState(0)
+
+
+    const calculatedFinalPrice = discountPercent > 0
+        ? cartTotal * (1 - discountPercent / 100)
+        : finalPrice;
+
+    const handleApplyPromo = (value, isPercentage) => {
+        if (isPercentage) {
+            setDiscountPercent(value);
+            setFinalPrice(cartTotal * (1 - value / 100));
+        } else {
+            setFinalPrice(value);
+        }
+    }
+
 
     return (
         <>
@@ -30,17 +46,17 @@ const Cart = () => {
                         {cartItems.length > 0 && (
                             <>
                                 <div>
-                            <OrderSummary finalPrice={finalPrice} setOrderTotal={setOrderTotal} />
-                                <Checkout finalPrice={finalPrice} orderTotal={orderTotal} />
+                                    <OrderSummary finalPrice={calculatedFinalPrice}
+                                                  setOrderTotal={setOrderTotal}
+                                                    discountPercent={discountPercent}/>
+                                    <Checkout finalPrice={finalPrice} orderTotal={orderTotal} />
                                 </div>
                             </>)}
 
                     </div>
                     <PromoCode
                         originalTotal={cartTotal}
-                        onApplyPromo={(newPrice) => {
-                            setFinalPrice(newPrice);
-                        }}
+                        onApplyPromo={handleApplyPromo}
                     />
                 </div>
             </div>

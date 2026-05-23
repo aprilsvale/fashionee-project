@@ -1,5 +1,4 @@
 const Checkout = ({orderTotal}) => {
-
     const handleCheckout = () => {
         console.log("Checkout", orderTotal);
     }

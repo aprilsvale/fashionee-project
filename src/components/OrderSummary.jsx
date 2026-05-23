@@ -1,14 +1,19 @@
 import { useCart } from "../context/CartContext";
-const OrderSummary = ({finalPrice, setOrderTotal}) => {
+import {useEffect, useState} from "react";
 
+const OrderSummary = ({finalPrice, setOrderTotal, discountPercent}) => {
     const { cartItems, cartTotal } = useCart();
 
-    const discount = cartTotal - finalPrice;
-    const hasDiscount = discount > 0;
+    const hasDiscount = discountPercent > 0;
+    const discount = hasDiscount ? cartTotal * (discountPercent / 100) : 0;
     const delivery = 16;
     const totalVeryTotal = finalPrice + delivery;
 
-    setOrderTotal(totalVeryTotal);
+    useEffect (() => {
+        setOrderTotal(totalVeryTotal);
+    }, [totalVeryTotal, setOrderTotal]);
+
+
 
     return (
         <>
@@ -22,7 +27,7 @@ const OrderSummary = ({finalPrice, setOrderTotal}) => {
                         </div>
                         {hasDiscount && (
                             <div className="price-row discount">
-                                <div className="name">Discount for promo code</div>
+                                <div className="name">Discount for promo code ({discountPercent}%)</div>
                                 <div className="name-bold">-${discount.toFixed(2)}</div>
                             </div>
                         )}
@@ -44,5 +49,3 @@ const OrderSummary = ({finalPrice, setOrderTotal}) => {
 }
 
 export default OrderSummary;
-
-

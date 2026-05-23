@@ -69,11 +69,9 @@ export const CartProvider = ({ children }) => {
         updateQuantity(productId, getItemQuantity(productId) + 1);
     };
 
-
     const decrementQuantity = (productId) => {
         updateQuantity(productId, getItemQuantity(productId) - 1);
     };
-
 
     const clearCart = () => {
         setCartItems([]);

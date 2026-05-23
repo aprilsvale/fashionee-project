@@ -3,7 +3,7 @@ import Sidebar from './Sidebar';
 import Sort from "./Sort";
 import ProductList from './ProductList';
 
-import products from './products.json';
+import products from '../products/products.json';
 import { parseFilters } from '../utils/filterParser';
 import React, { useState, useMemo, useCallback } from 'react';
 
@@ -60,7 +60,7 @@ const Shop = () => {
         const sorted = [...filteredProducts];
 
         if (sortType === 'rating') {
-            return sorted.sort((a, b) => b.rating - a.rating);
+            return sorted;
         }
         if (sortType === 'price') {
             return sorted.sort((a, b) => a.price - b.price);
@@ -69,7 +69,7 @@ const Shop = () => {
             return sorted.sort((a, b) => b.price - a.price);
         }
 
-        return sorted.sort((a, b) => b.relevance - a.relevance);
+       else return sorted;
     }, [filteredProducts, sortType]);
 
     const itemsPerPage = 6;
