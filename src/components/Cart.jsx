@@ -15,7 +15,7 @@ const Cart = () => {
 
     const calculatedFinalPrice = discountPercent > 0
         ? cartTotal * (1 - discountPercent / 100)
-        : finalPrice;
+        : cartTotal;
 
     const handleApplyPromo = (value, isPercentage) => {
         if (isPercentage) {

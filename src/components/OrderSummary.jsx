@@ -1,13 +1,13 @@
 import { useCart } from "../context/CartContext";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 
-const OrderSummary = ({finalPrice, setOrderTotal, discountPercent}) => {
+const OrderSummary = ({setOrderTotal, discountPercent}) => {
     const { cartItems, cartTotal } = useCart();
 
     const hasDiscount = discountPercent > 0;
     const discount = hasDiscount ? cartTotal * (discountPercent / 100) : 0;
     const delivery = 16;
-    const totalVeryTotal = finalPrice + delivery;
+    const totalVeryTotal = cartTotal + delivery;
 
     useEffect (() => {
         setOrderTotal(totalVeryTotal);
