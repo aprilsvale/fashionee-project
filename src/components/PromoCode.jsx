@@ -1,7 +1,7 @@
 import arrowPromoSvg from "../icons/arrow-promo.svg";
 import {useState} from "react";
 
-const PromoCode = ({originalTotal, onApplyPromo}) => {
+const PromoCode = ({onPromo}) => {
     const [promoInput, setPromoInput] = useState('');
     const [error, setError] = useState('');
     const [isPromoApplied, setIsPromoApplied] = useState(false);
@@ -13,8 +13,8 @@ const PromoCode = ({originalTotal, onApplyPromo}) => {
         }
 
         if (promoInput === 'ilovereact') {
-            onApplyPromo(10, true);
             setIsPromoApplied(true);
+            onPromo(true)
             setError('');
         } else {
             setError('incorrect!');

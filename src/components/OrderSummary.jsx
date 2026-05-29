@@ -1,18 +1,16 @@
 import { useCart } from "../context/CartContext";
 import {useEffect} from "react";
 
-const OrderSummary = ({setOrderTotal, discountPercent}) => {
-    const { cartItems, cartTotal } = useCart();
-
-    const hasDiscount = discountPercent > 0;
-    const discount = hasDiscount ? cartTotal * (discountPercent / 100) : 0;
+const OrderSummary = ({cartTotal, setOrderTotal, isPromoApplied}) => {
+    const { cartItems } = useCart();
+    const discountPercent = 10;
+    const discount = isPromoApplied ? cartTotal * (discountPercent / 100) : 0;
     const delivery = 16;
-    const totalVeryTotal = cartTotal + delivery;
+    const total = cartTotal - discount + delivery;
 
-    useEffect (() => {
-        setOrderTotal(totalVeryTotal);
-    }, [totalVeryTotal, setOrderTotal]);
-
+    useEffect(() => {
+        setOrderTotal(total);
+    }, [total, setOrderTotal]);
 
 
     return (
@@ -25,7 +23,7 @@ const OrderSummary = ({setOrderTotal, discountPercent}) => {
                             <div className="name">Order price</div>
                             <div className="name-bold">${cartTotal.toFixed(2)}</div>
                         </div>
-                        {hasDiscount && (
+                        {isPromoApplied && (
                             <div className="price-row discount">
                                 <div className="name">Discount for promo code ({discountPercent}%)</div>
                                 <div className="name-bold">-${discount.toFixed(2)}</div>
@@ -39,7 +37,7 @@ const OrderSummary = ({setOrderTotal, discountPercent}) => {
                         </div>
                         <div className="price-row total">
                             <div className="name">Total</div>
-                            <div className="name-bold">${totalVeryTotal.toFixed(2)}</div>
+                            <div className="name-bold">${total.toFixed(2)}</div>
                         </div>
                     </div>
                 </div>
