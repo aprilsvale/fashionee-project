@@ -8,14 +8,14 @@ const PromoCode = ({onPromo}) => {
 
     const handlePromo = () => {
         if (isPromoApplied) {
-            setError('Промокод уже применён!');
+            setError('Promo has already been applied');
             return;
         }
 
         if (promoInput === 'ilovereact') {
             setIsPromoApplied(true);
             onPromo(true)
-            setError('');
+            setError('Promo is applied');
         } else {
             setError('incorrect!');
         }
@@ -41,11 +41,18 @@ const PromoCode = ({onPromo}) => {
                 />
                 <div className="button-wrapper">
                     <button className="button" onClick={handlePromo}>
-                        <img src={arrowPromoSvg} alt="Arrow-icon" />
+                       Apply <img src={arrowPromoSvg} alt="Arrow-icon" />
                     </button>
                     <div className="vertical-line"></div>
                 </div>
             </div>
+
+            {error && (
+                <div className="error-message" style={{ color: 'red' }}>
+                    {error}
+                </div>
+            )}
+
 
             <div className="find-us">
                 <div className="find-us-text">Find us here:</div>
