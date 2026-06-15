@@ -45,6 +45,8 @@ const ProductCard = ({ product }) => {
                 <button
                     className={`favorite-button ${favorite ? 'active' : ''}`}
                     onClick={handleFavoriteClick}
+                    data-testid={`favorite-btn-${product.id}`}
+
                 >
                     <img src={heartSvg} alt="favorite" />
                 </button>
@@ -61,12 +63,19 @@ const ProductCard = ({ product }) => {
 
                 {quantity > 0 ? (
                     <div className="cart-quantity-selector">
-                        <button className="quantity-btn" onClick={handleDecrement}>-</button>
-                        <span className="quantity">{quantity}</span>
-                        <button className="quantity-btn" onClick={handleIncrement}>+</button>
+                        <button className="quantity-btn"
+                                onClick={handleDecrement}
+                                data-testid={`decrement-btn-${product.id}`}
+                        >-</button>
+                        <span className="quantity" data-testid={`quantity-${product.id}`}>{quantity}</span>
+                        <button className="quantity-btn"
+                                onClick={handleIncrement}
+                                data-testid={`increment-btn-${product.id}`}>+</button>
                     </div>
                 ) : (
-                    <button className="add-to-cart-btn" onClick={handleAddToCart}>
+                    <button className="add-to-cart-btn"
+                            onClick={handleAddToCart}
+                            data-testid={`add-to-cart-btn-${product.id}`}>
                         Add to Cart
                     </button>
                 )}

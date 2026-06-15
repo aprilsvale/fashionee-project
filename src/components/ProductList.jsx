@@ -4,12 +4,14 @@ import Pagination from './Pagination';
 const ProductList = ({ products, currentPage, onPageChange, totalPages }) => {
     return (
         <div className="products-wrapper">
-            <div className="products">
+            <div className="products" data-testid="products-container">
                 {products.length === 0 ? (
-                    <div className="no-products">No products found</div>
+                    <div className="no-products" data-testid="no-products-message">No products found</div>
                 ) : (
                     products.map(product => (
-                        <ProductCard key={product.id} product={product} />
+                        <div key={product.id} data-testid={`product-${product.id}`}>
+                        <ProductCard product={product} />
+                        </div>
                     ))
                 )}
             </div>

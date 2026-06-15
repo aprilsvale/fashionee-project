@@ -12,32 +12,31 @@ const OrderSummary = ({cartTotal, setOrderTotal, isPromoApplied}) => {
         setOrderTotal(total);
     }, [total, setOrderTotal]);
 
-
     return (
         <>
             {cartItems.length > 0 && (
-                <div className="order">
-                    <div className="title">Your Order</div>
+                <div className="order" data-testid="order-summary">
+                    <div className="title" data-testid="order-title">Your Order</div>
                     <div className="order-price-wrapper">
-                        <div className="price-row">
+                        <div className="price-row" data-testid="order-price-row">
                             <div className="name">Order price</div>
-                            <div className="name-bold">${cartTotal.toFixed(2)}</div>
+                            <div className="name-bold" data-testid="cart-subtotal">${cartTotal.toFixed(2)}</div>
                         </div>
                         {isPromoApplied && (
-                            <div className="price-row discount">
+                            <div className="price-row discount" data-testid="discount-row">
                                 <div className="name">Discount for promo code ({discountPercent}%)</div>
-                                <div className="name-bold">-${discount.toFixed(2)}</div>
+                                <div className="name-bold" data-testid="discount-amount">-${discount.toFixed(2)}</div>
                             </div>
                         )}
-                        <div className="price-row delimiter">
+                        <div className="price-row delimiter" data-testid="delivery-row">
                             <div className="name">
                                 Delivery <span className="additional">(Aug 02 at 16:00)</span>
                             </div>
-                            <div className="name-bold">$16</div>
+                            <div className="name-bold" data-testid="delivery-amount">$16</div>
                         </div>
-                        <div className="price-row total">
+                        <div className="price-row total" data-testid="total-row">
                             <div className="name">Total</div>
-                            <div className="name-bold">${total.toFixed(2)}</div>
+                            <div className="name-bold" data-testid="cart-total">${total.toFixed(2)}</div>
                         </div>
                     </div>
                 </div>

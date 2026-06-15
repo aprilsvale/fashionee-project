@@ -20,6 +20,7 @@ const Search = ({ onSearch }) => {
                 className="input search-row"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
+                data-testid="search-input"
             />
             <img src={magnifierSvg} alt="search-icon" className="search-icon" />
         </label>

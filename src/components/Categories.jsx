@@ -12,7 +12,7 @@ const Categories = ({categories, onCategoryChange}) => {
         <div className="sidebar-item">
             <div className="sidebar-title">Categories</div>
             <div className="sidebar-content">
-                <ul className="custom-list">
+                <ul className="custom-list" data-testid="category-list">
                     <li className={`item ${selectedCategory === 'All' ? 'active' : ''}`}>
                         <label>
                             <input

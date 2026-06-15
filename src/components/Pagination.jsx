@@ -18,6 +18,7 @@ const Pagination = ({onPageChange, currentPage, totalPages}) => {
                 className="page prev"
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
+                data-testid="prev-page"
             >
                 &lt;
             </button>
@@ -28,6 +29,7 @@ const Pagination = ({onPageChange, currentPage, totalPages}) => {
                         key={number}
                         className={`page ${currentPage === number ? 'active' : ''}`}
                         onClick={() => handlePageChange(number)}
+                        data-testid={'page-${number}'}
                     >
                         {number}
                     </button>
@@ -38,6 +40,7 @@ const Pagination = ({onPageChange, currentPage, totalPages}) => {
                 className="page next"
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
+                data-testid="next-page"
             >
                 &gt;
             </button>

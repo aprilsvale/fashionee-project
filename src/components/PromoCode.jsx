@@ -1,10 +1,12 @@
 import arrowPromoSvg from "../icons/arrow-promo.svg";
 import {useState} from "react";
+export const Promo1 = 'ilovereact';
 
 const PromoCode = ({onPromo}) => {
     const [promoInput, setPromoInput] = useState('');
     const [error, setError] = useState('');
     const [isPromoApplied, setIsPromoApplied] = useState(false);
+
 
     const handlePromo = () => {
         if (isPromoApplied) {
@@ -12,7 +14,7 @@ const PromoCode = ({onPromo}) => {
             return;
         }
 
-        if (promoInput === 'ilovereact') {
+        if (promoInput === Promo1) {
             setIsPromoApplied(true);
             onPromo(true)
             setError('Promo is applied');
@@ -22,7 +24,7 @@ const PromoCode = ({onPromo}) => {
     }
 
     return (
-        <div className="promo-code-wrapper">
+        <div className="promo-code-wrapper" data-testid="promo-code-wrapper">
             <div className="info">
                 <div className="title">You Have A Promo Code?</div>
                 <div className="description">
@@ -30,7 +32,7 @@ const PromoCode = ({onPromo}) => {
                 </div>
             </div>
 
-            <div className="promo-code">
+            <div className="promo-code" data-testid="promo-code-container">
                 <input
                     type="text"
                     value={promoInput}
@@ -38,21 +40,21 @@ const PromoCode = ({onPromo}) => {
                     name="promo-code"
                     className="input"
                     placeholder="Enter promo code"
+                    data-testid="promo-code-input"
                 />
                 <div className="button-wrapper">
-                    <button className="button" onClick={handlePromo}>
-                       Apply <img src={arrowPromoSvg} alt="Arrow-icon" />
+                    <button className="button" onClick={handlePromo} data-testid="apply-promo-btn">
+                        Apply <img src={arrowPromoSvg} alt="Arrow-icon" />
                     </button>
                     <div className="vertical-line"></div>
                 </div>
             </div>
 
             {error && (
-                <div className="error-message" style={{ color: 'red' }}>
+                <div className="error-message" data-testid="promo-message" style={{ color: error === 'Promo is applied' ? 'green' : 'red' }}>
                     {error}
                 </div>
             )}
-
 
             <div className="find-us">
                 <div className="find-us-text">Find us here:</div>

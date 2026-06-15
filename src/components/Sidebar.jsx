@@ -40,7 +40,7 @@ const Sidebar = ({
 
             <div className="sidebar-item">
                 <div className="button-wrapper">
-                    <button className="button" onClick={onApplyFilters}>
+                    <button className="button" onClick={onApplyFilters} data-testid={"apply-filters"}>
                         Apply Filter
                     </button>
                     <div className="vertical-line"></div>

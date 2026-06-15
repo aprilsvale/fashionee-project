@@ -5,6 +5,7 @@ const Sort = ({ sortType, onSortChange, totalCount }) => {
                 <select
                     className="input"
                     value={sortType}
+                    data-testid="sort-select"
                     onChange={(e) => onSortChange(e.target.value)}
                 >
                     <option value="relevance">Sort by relevance</option>
